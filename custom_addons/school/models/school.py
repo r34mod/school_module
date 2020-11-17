@@ -39,18 +39,13 @@ class Colegio(models.Model):
 
     @api.depends("fechaNacimiento")
     def _getEdadAlumno(self):
-        """Age Calculation"""
+       
 
         today_date = datetime.date.today()
         fechaActual = datetime.date.today()
         for alum in self:
             if alum.fechaNacimiento:
-                """
-                Get only year.
-                """
-                # bdate = fields.Datetime.to_datetime(stud.bdate).date()
-                # total_age = str(int((today_date - bdate).days / 365))
-                # stud.student_age = total_age
+               
 
                 currentDate = datetime.date.today()
 
@@ -77,10 +72,10 @@ class Colegio(models.Model):
                 seconds = (minutes - minutesInt) * 60
                 secondsInt = int(seconds)
 
-                alum.edadAlumno = 'You are {0:d} years, {1:d}  months, {2:d}  days, {3:d}  hours, {4:d} \
-                     minutes, {5:d} seconds old.'.format(yearsInt, monthsInt, daysInt, hoursInt, minutesInt, secondsInt)
+                alum.edadAlumno = 'Tienes {0:d} años, {1:d}  meses, {2:d}  dias, {3:d}  horas, {4:d} \
+                     minutos, {5:d} segundos .'.format(yearsInt, monthsInt, daysInt, hoursInt, minutesInt, secondsInt)
             else:
-                alum.edadAlumno = "Not Providated...."
+                alum.edadAlumno = "No realizado."
 
 
     @api.model
